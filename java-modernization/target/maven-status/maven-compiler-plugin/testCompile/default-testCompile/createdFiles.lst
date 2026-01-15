@@ -1,0 +1,5 @@
+com/cobolmodernization/integration/FileProcessingServiceIntegrationTest.class
+com/cobolmodernization/integration/SalesServiceIntegrationTest.class
+com/cobolmodernization/integration/CustomerServiceIntegrationTest.class
+com/cobolmodernization/integration/ProductServiceIntegrationTest.class
+com/cobolmodernization/CobolModernizationApplicationTests.class

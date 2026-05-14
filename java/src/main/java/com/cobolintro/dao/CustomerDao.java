@@ -25,7 +25,7 @@ public class CustomerDao {
      * @throws DuplicateKeyException if a customer with the same key already exists
      */
     public void add(Customer customer) {
-        String sql = "INSERT INTO customers (key, name, phone) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO customers (\"key\", name, phone) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, customer.getKey());
@@ -48,7 +48,7 @@ public class CustomerDao {
      * @throws RecordNotFoundException if no customer with the given key exists
      */
     public Customer findByKey(String key) {
-        String sql = "SELECT key, name, phone FROM customers WHERE key = ?";
+        String sql = "SELECT \"key\", name, phone FROM customers WHERE \"key\" = ?";
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, key);
@@ -69,7 +69,7 @@ public class CustomerDao {
      * @return list of all customers
      */
     public List<Customer> findAll() {
-        String sql = "SELECT key, name, phone FROM customers";
+        String sql = "SELECT \"key\", name, phone FROM customers";
         List<Customer> customers = new ArrayList<>();
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);

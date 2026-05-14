@@ -45,7 +45,7 @@ public class DatabaseManager {
                     + "quantity INT)");
 
             stmt.execute("CREATE TABLE IF NOT EXISTS customers ("
-                    + "key VARCHAR(10) PRIMARY KEY, "
+                    + "\"key\" VARCHAR(10) PRIMARY KEY, "
                     + "name VARCHAR(30), "
                     + "phone VARCHAR(15))");
         }

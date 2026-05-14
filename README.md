@@ -41,5 +41,52 @@ You can run these programs using one of the following options:
 ```bash
 sudo apt install open-cobol         # Linux
 brew install gnu-cobol              # MacOS (via Homebrew)
-✅ O
+```
 
+### Option 2: Online Compilers
+
+Use an online COBOL compiler such as [JDoodle](https://www.jdoodle.com/execute-cobol-online/) or [Tutorialspoint](https://www.tutorialspoint.com/compile_cobol_online.php).
+
+---
+
+## Java Migration
+
+This repository also contains a complete Java migration of the COBOL programs, using Maven, H2 embedded database, and JDBC.
+
+### Build
+
+```bash
+cd java
+mvn clean install
+```
+
+### Run
+
+```bash
+# Interactive product entry
+mvn exec:java -Dexec.mainClass="com.cobolintro.app.ProductEntryApp"
+
+# Sales registration
+mvn exec:java -Dexec.mainClass="com.cobolintro.app.SalesApp"
+
+# Customer management
+mvn exec:java -Dexec.mainClass="com.cobolintro.app.CustomerApp"
+
+# File demos and arithmetic
+mvn exec:java -Dexec.mainClass="com.cobolintro.app.DemoApp"
+```
+
+### COBOL-to-Java Mapping
+
+| COBOL Program | Java Equivalent | Description |
+|---|---|---|
+| createdat.cbl | ProductEntryApp + ProductService + ProductDao | Product entry with indexed file |
+| excercise2.cbl | ProductService.initializeProducts() | Batch product loading |
+| excercise3-sells.cbl | SalesApp + SaleService + SaleDao | Sales with cross-file validation |
+| EXAMPLE-INDEX.cbl | CustomerApp + CustomerService + CustomerDao | Customer management with indexed access |
+| SEQUENTIAL-EXAMPLE.cbl | FileDemoService.sequentialDemo() + SequentialFileDao | Sequential file operations |
+| Relative.cbl | FileDemoService.relativeDemo() + RelativeFileDao | Relative file access |
+| read-write.cbl | FileDemoService.readWriteDemo() + FileCopyDao | Line-by-line file copy |
+| aritmeti.cbl | FileDemoService.arithmeticDemo() | Arithmetic operations |
+
+For detailed migration decisions, see [MIGRATION.md](MIGRATION.md).
